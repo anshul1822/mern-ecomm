@@ -75,16 +75,7 @@ export const generateEmailBody = async (product : EmailProductInfo, type : Notif
     }
 
 
-    const transporter = nodemailer.createTransport({
-        pool: true,
-        service: 'hotmail',
-        port: 587,
-        auth: {
-          user: 'pricesavvy99@outlook.com',
-          pass: process.env.EMAIL_PASSWORD,
-        },
-        maxConnections: 1
-      })
+
       
       export const sendEmail = async (emailContent: EmailContent, sendTo: string[]) => {
         const mailOptions = {
@@ -94,6 +85,17 @@ export const generateEmailBody = async (product : EmailProductInfo, type : Notif
           subject: emailContent.subject,
         }
       
+        const transporter = nodemailer.createTransport({
+          pool: true,
+          service: 'hotmail',
+          port: 587,
+          auth: {
+            user: 'pricesavvy99@outlook.com',
+            pass: process.env.EMAIL_PASSWORD,
+          },
+          maxConnections: 1
+        })
+        
         transporter.sendMail(mailOptions, (error: any, info: any) => {
           if(error) return console.log(error);
           
