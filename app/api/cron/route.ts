@@ -10,7 +10,7 @@ import {
 import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
 import { NextResponse } from "next/server";
 
-export const maxDuration = 5; // 5 minutes
+export const maxDuration = 9; // 5 minutes
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
